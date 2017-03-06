@@ -11,11 +11,11 @@ test('service updater', t => {
     const fakeData = {
       _id: 'a fake _id',
       environments: [{
-        name: 'a fake environment name',
+        _id: 'a fake environment _id',
         baseUrl: 'a fake environment baseUrl'
       }],
       links: [{
-        name: 'a fake link name',
+        _id: 'a fake link _id',
         url: 'a fake link url'
       }],
     };

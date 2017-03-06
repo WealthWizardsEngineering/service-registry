@@ -14,8 +14,8 @@ test('service model', (t) => {
 
     function fakeSchema(schema, options) {
       assert.deepEqual(schema._id, { type: String }, 'expected id to be of type string');
-      assert.deepEqual(schema.environments, [ { name: { type: String }, baseUrl: { type: String } } ], 'expected environments to be a list');
-      assert.deepEqual(schema.links, [ { name: { type: String }, url: { type: String } } ], 'expected links to be a list');
+      assert.deepEqual(schema.environments, [ { _id: { type: String }, baseUrl: { type: String } } ], 'expected environments to be a list');
+      assert.deepEqual(schema.links, [ { _id: { type: String }, url: { type: String } } ], 'expected links to be a list');
     }
 
     fakeSchema.Types = {

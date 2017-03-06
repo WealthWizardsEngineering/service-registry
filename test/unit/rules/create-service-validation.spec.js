@@ -19,7 +19,9 @@ test('create service validation', t => {
       }),
       array: () => ({
         items: () => ({
-          optional: () => 'array:items:optional',
+          optional: () => ({
+            allow: () => 'array:items:optional:allow',
+          }),
         }),
       }),
     };
@@ -28,8 +30,8 @@ test('create service validation', t => {
 
     const expectedKeys = {
       _id: 'string:required',
-      environments: 'array:items:optional',
-      links: 'array:items:optional',
+      environments: 'array:items:optional:allow',
+      links: 'array:items:optional:allow',
     };
 
     assert.deepEqual(target, expectedKeys);

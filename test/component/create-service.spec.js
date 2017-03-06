@@ -18,11 +18,11 @@ test('create service', (t) => {
     const fakeService = {
       _id: 'my-fake-service',
       environments: [{
-        name: 'green',
+        _id: 'green',
         baseUrl: 'https://bob.com',
       }],
       links: [{
-        name:'ping',
+        _id:'ping',
         url: '/ping'
       }],
     };
@@ -38,10 +38,10 @@ test('create service', (t) => {
               .then((result) => {
                 assert.equal(result._id, fakeService._id, 'expected retrieved id to match posted id');
                 assert.equal(result.environments.length, fakeService.environments.length, 'expected number of environments incorrect')
-                assert.equal(result.environments[0].name, fakeService.environments[0].name, 'expected retrieved environment name to match posted environment name');
+                assert.equal(result.environments[0]._id, fakeService.environments[0]._id, 'expected retrieved environment _id to match posted environment _id');
                 assert.equal(result.environments[0].baseUrl, fakeService.environments[0].baseUrl, 'expected retrieved environment baseUrl to match posted environment baseUrl');
                 assert.equal(result.links.length, fakeService.links.length, 'expected number of links incorrect')
-                assert.equal(result.links[0].name, fakeService.links[0].name, 'expected retrieved link name to match posted link name');
+                assert.equal(result.links[0]._id, fakeService.links[0]._id, 'expected retrieved link _id to match posted link _id');
                 assert.equal(result.links[0].url, fakeService.links[0].url, 'expected retrieved link url to match posted link url');
               })
               .catch((error) => {
@@ -60,11 +60,11 @@ test('create service', (t) => {
     const fakeService = {
       _id: 'my-fake-service',
       environments: [{
-        name: 'green',
+        _id: 'green',
         baseUrl: 'https://bob.com',
       }],
       links: [{
-        name:'ping',
+        _id:'ping',
         url: '/ping'
       }],
     };

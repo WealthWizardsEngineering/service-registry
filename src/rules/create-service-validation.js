@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const environmentRules = Joi.object().keys({
-  name: Joi.string().required(),
+  _id: Joi.string().required(),
   baseUrl: Joi.string().uri({
     scheme: [
       'http',
@@ -11,7 +11,7 @@ const environmentRules = Joi.object().keys({
 });
 
 const linkRules = Joi.object().keys({
-  name: Joi.string().required(),
+  _id: Joi.string().required(),
   url: Joi.string().uri({
     scheme: [
       'http',
@@ -24,8 +24,8 @@ const linkRules = Joi.object().keys({
 
 const createValidationRules = Joi.object().keys({
   _id: Joi.string().required(),
-  environments: Joi.array().items(environmentRules).optional(),
-  links: Joi.array().items(linkRules).optional(),
+  environments: Joi.array().items(environmentRules).optional().allow(null),
+  links: Joi.array().items(linkRules).optional().allow(null),
 });
 
 module.exports = createValidationRules;

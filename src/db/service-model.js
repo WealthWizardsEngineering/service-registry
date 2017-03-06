@@ -4,13 +4,15 @@ mongoose.Promise = Promise;
 const ServiceSchema = new mongoose.Schema({
   _id: { type: String },
   environments: [{
-    name: {type: String},
+    _id: {type: String},
     baseUrl: {type: String},
   }],
   links: [{
-    name: {type: String},
+    _id: {type: String},
     url: {type: String},
   }],
+},{
+  timestamps: true
 });
 
 module.exports = mongoose.model('Service', ServiceSchema);

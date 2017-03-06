@@ -75,14 +75,14 @@ definitions:
     Environment:
       type: object
       properties:
-        name:
+        _id:
           type: string
         baseUrl:
           type: string
     Link:
       type: object
       properties:
-        name:
+        _id:
           type: string
         url:
           type: string

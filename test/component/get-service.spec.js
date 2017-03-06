@@ -17,11 +17,11 @@ test('get service', (t) => {
     const fakeServiceA = {
       _id: 'my-fake-service-a',
       environments: [{
-        name: 'green-a',
+        _id: 'green-a',
         baseUrl: 'https://bob.com/a',
       }],
       links: [{
-        name:'ping-a',
+        _id:'ping-a',
         url: '/ping-a'
       }],
     };
@@ -29,11 +29,11 @@ test('get service', (t) => {
     const fakeServiceB = {
       _id: 'my-fake-service-b',
       environments: [{
-        name: 'green-b',
+        _id: 'green-b',
         baseUrl: 'https://bob.com/b',
       }],
       links: [{
-        name:'ping-b',
+        _id:'ping-b',
         url: '/ping-b'
       }],
     };
@@ -48,10 +48,10 @@ test('get service', (t) => {
             assert.equal(res.status, 200, 'expected a success status code');
             assert.equal(res.body._id, fakeServiceB._id, 'expected _id from database to match');
             assert.equal(res.body.environments.length, fakeServiceB.environments.length, 'expected number of environments incorrect')
-            assert.equal(res.body.environments[0].name, fakeServiceB.environments[0].name, 'expected retrieved environment name to match posted environment name');
+            assert.equal(res.body.environments[0]._id, fakeServiceB.environments[0]._id, 'expected retrieved environment _id to match posted environment _id');
             assert.equal(res.body.environments[0].baseUrl, fakeServiceB.environments[0].baseUrl, 'expected retrieved environment baseUrl to match posted environment baseUrl');
             assert.equal(res.body.links.length, fakeServiceB.links.length, 'expected number of links incorrect')
-            assert.equal(res.body.links[0].name, fakeServiceB.links[0].name, 'expected retrieved link name to match posted link name');
+            assert.equal(res.body.links[0]._id, fakeServiceB.links[0]._id, 'expected retrieved link _id to match posted link _id');
             assert.equal(res.body.links[0].url, fakeServiceB.links[0].url, 'expected retrieved link url to match posted link url');
           });
       });
