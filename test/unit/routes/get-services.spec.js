@@ -12,6 +12,7 @@ test('get services', t => {
 
     const expectedWhitelist = [
       '_id',
+      'tags'
     ];
 
     const target = proxyquire('../../../src/routes/get-services', {

@@ -8,8 +8,21 @@ test('service updater', t => {
 
     assert.plan(1);
 
-    const fakeData = {
+    const fakeRequestData = {
       _id: 'a fake _id',
+      environments: [{
+        _id: 'a fake environment _id',
+        baseUrl: 'a fake environment baseUrl'
+      }],
+      links: [{
+        _id: 'a fake link _id',
+        url: 'a fake link url'
+      }],
+    };
+
+    const fakeDatabaseData = {
+      _id: 'a fake _id',
+      tags: undefined,
       environments: [{
         _id: 'a fake environment _id',
         baseUrl: 'a fake environment baseUrl'
@@ -22,7 +35,7 @@ test('service updater', t => {
 
     const fakeExec = sinon.spy();
     const findOneAndUpdateStub = sinon.stub();
-    findOneAndUpdateStub.withArgs({ _id: fakeData._id }, { $set: fakeData }).returns({ exec: fakeExec });
+    findOneAndUpdateStub.withArgs({ _id: fakeData._id }, { $set: fakeDatabaseData }).returns({ exec: fakeExec });
 
     const serviceStub = {
       findOneAndUpdate: findOneAndUpdateStub
@@ -30,7 +43,7 @@ test('service updater', t => {
 
     const target = proxyquire('../../../src/db/service-updater', { './service-model': serviceStub });
 
-    target(fakeData);
+    target(fakeRequestData);
 
     assert.true(fakeExec.calledOnce, 'expected exec to be called once');
 

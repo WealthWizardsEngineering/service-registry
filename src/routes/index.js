@@ -2,6 +2,7 @@ const createService = require('./create-service');
 const getService= require('./get-service');
 const getServices = require('./get-services');
 const updateService = require('./update-service');
+const getTags = require('./get-tags');
 const createServiceValidation = require('../rules/create-service-validation');
 const queryStringValidation = require('../rules/querystring-validation');
 const { requestValidator } = require('ww-validation');
@@ -26,4 +27,9 @@ module.exports = (app) => {
     requestValidator({ body: createServiceValidation }),
     updateService
   );
+
+  app.get('/v1/tag',
+    getTags
+  );
+
 };

@@ -12,8 +12,10 @@ test('create service validation', t => {
         keys: (keys) => keys
       }),
       string: () => ({
+        optional: () => 'string:optional',
         required: () => 'string:required',
         uri: () => ({
+          optional: () => 'string:uri:optional',
           required: () => 'string:uri:required',
         }),
       }),
@@ -30,6 +32,7 @@ test('create service validation', t => {
 
     const expectedKeys = {
       _id: 'string:required',
+      tags: 'array:items:optional:allow',
       environments: 'array:items:optional:allow',
       links: 'array:items:optional:allow',
     };

@@ -26,7 +26,7 @@ test('build query', t => {
 
   });
 
-  t.test('should assign multiple values to $in', assert => {
+  t.test('should assign multiple values to $all', assert => {
 
     assert.plan(1);
 
@@ -41,7 +41,7 @@ test('build query', t => {
 
     const expectedQuery = {
       wanted: {
-        $in: ['fake', 'wanted', 'value'],
+        $all: ['fake', 'wanted', 'value'],
       },
     };
 

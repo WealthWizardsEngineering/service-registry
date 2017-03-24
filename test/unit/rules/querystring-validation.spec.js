@@ -16,6 +16,7 @@ test('querystring validation', assert => {
 
   const expectedKeys = {
     _id: 'string',
+    tags: 'string',
     fields: 'string',
   };
 

@@ -1,7 +1,7 @@
 const { getServices } = require('../db/service-reader');
 const { buildQuery, buildProjection } = require('../db/helpers');
 
-const QUERY_WHITELIST = ['_id'];
+const QUERY_WHITELIST = ['_id', 'tags'];
 const PROJECTION_WHITELIST = ['_id'];
 
 module.exports = (req, res) => {
