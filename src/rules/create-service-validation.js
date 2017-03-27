@@ -7,7 +7,7 @@ const environmentRules = Joi.object().keys({
       'http',
       'https'
     ],
-  }).required(),
+  }).optional(),
 });
 
 const linkRules = Joi.object().keys({

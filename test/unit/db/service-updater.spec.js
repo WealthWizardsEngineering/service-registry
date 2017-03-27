@@ -35,7 +35,7 @@ test('service updater', t => {
 
     const fakeExec = sinon.spy();
     const findOneAndUpdateStub = sinon.stub();
-    findOneAndUpdateStub.withArgs({ _id: fakeData._id }, { $set: fakeDatabaseData }).returns({ exec: fakeExec });
+    findOneAndUpdateStub.withArgs({ _id: fakeDatabaseData._id }, { $set: fakeDatabaseData }).returns({ exec: fakeExec });
 
     const serviceStub = {
       findOneAndUpdate: findOneAndUpdateStub
