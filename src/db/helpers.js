@@ -5,7 +5,7 @@ const grid = require('gridfs-stream');
 /**
  * Build a mongo query by picking whitelisted fields
  * from the input query object and mapping those to
- * individual values or an array of $in values
+ * individual values or an array of $all values
  * @param {string[]} whitelist - The allowed query fields
  */
 const buildQuery = whitelist => query =>
@@ -17,7 +17,7 @@ const buildQuery = whitelist => query =>
       }
 
       return {
-        $in: value.split(','),
+        $all: value.split(','),
       };
     })
     .value();

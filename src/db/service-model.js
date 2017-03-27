@@ -3,6 +3,9 @@ mongoose.Promise = Promise;
 
 const ServiceSchema = new mongoose.Schema({
   _id: { type: String },
+  tags: [
+    { type: String }
+  ],
   environments: [{
     _id: {type: String},
     baseUrl: {type: String},

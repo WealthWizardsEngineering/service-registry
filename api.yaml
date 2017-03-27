@@ -5,7 +5,7 @@ info:
   title: Version Service
   description: RESTful service to manage information about internal services
 schemes:
-  - http
+  - https
 basePath: /service-registry/v1
 consumes:
   - application/json

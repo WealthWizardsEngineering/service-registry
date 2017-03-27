@@ -6,7 +6,7 @@ test('service model', (t) => {
 
   t.test('creates a new mongoose schema', assert => {
 
-    assert.plan(4);
+    assert.plan(5);
 
     const fakeObjectId = 'fake object id';
 
@@ -14,6 +14,7 @@ test('service model', (t) => {
 
     function fakeSchema(schema, options) {
       assert.deepEqual(schema._id, { type: String }, 'expected id to be of type string');
+      assert.deepEqual(schema.tags, [ { type: String } ], 'expected tags to be an array of strings' ),
       assert.deepEqual(schema.environments, [ { _id: { type: String }, baseUrl: { type: String } } ], 'expected environments to be a list');
       assert.deepEqual(schema.links, [ { _id: { type: String }, url: { type: String } } ], 'expected links to be a list');
     }

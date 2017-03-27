@@ -98,4 +98,28 @@ test('routes', (t) => {
 
   });
 
+
+  t.test('creates a GET route for /v1/tag', assert => {
+
+    assert.plan(2);
+
+    const fakeApp = {
+      post: () => {},
+      put: () => {},
+      get: (route, ...middleware) => {
+        if (route === '/v1/tag') {
+          assert.equal(route, '/v1/tag');
+          assert.equal(middleware[0], 'get-tags');
+        }
+      },
+    };
+
+    const target = proxyquire('../../../src/routes/', {
+      './get-tags': 'get-tags',
+    });
+
+    target(fakeApp);
+
+  });
+
 });

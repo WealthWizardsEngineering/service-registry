@@ -6,10 +6,14 @@ test('service creator', t => {
 
   t.test('should create a new service model and call save', assert => {
 
-    assert.plan(5);
+    assert.plan(6);
 
     const fakeData = {
       _id: 'a fake _id',
+      tags: [
+        "fake-tag-1",
+        "fake-tag-2"
+      ],
       environments: [{
         _id: 'a fake environment _id',
         baseUrl: 'a fake environment baseUrl'
@@ -24,6 +28,7 @@ test('service creator', t => {
 
     function serviceStub(schema) {
       assert.equal(schema._id, fakeData._id, 'the expected service id should be saved');
+      assert.deepEqual(schema.tags, fakeData.tags, 'the expected tags list should be saved');
       assert.deepEqual(schema.environments, fakeData.environments, 'the expected environments list should be saved');
       assert.deepEqual(schema.links, fakeData.links, 'the expected links list should be saved');
 
