@@ -71,7 +71,7 @@
     "underscore": "1.8.3",
     "ww-events-common": "0.0.7",
     "ww-html-to-docx": "0.0.3",
-    "ww-logging": "0.3.0",
+    "ww-logging": "0.4.3",
     "ww-monitoring": "0.13.4",
     "ww-swagger-ui": "2.1.8",
     "ww-utils": "0.11.2"
