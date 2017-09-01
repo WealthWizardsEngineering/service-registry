@@ -74,6 +74,6 @@
     "ww-logging": "0.4.3",
     "ww-monitoring": "0.13.4",
     "ww-swagger-ui": "2.1.8",
-    "ww-utils": "0.11.2"
+    "ww-utils": "0.11.18"
   }
 }
