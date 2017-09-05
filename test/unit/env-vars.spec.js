@@ -11,7 +11,7 @@ test('that env vars are validated', (t) => {
 
   proxyquire('../../src/env-vars', {
     envalid: envalidStub,
-    './logger': { info: () => {} },
+    './logger': { inProdEnv: () => {} },
   });
 
   t.deepEquals(envalidStub.cleanEnv.args[0][1], {

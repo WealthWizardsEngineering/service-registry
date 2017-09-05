@@ -7,6 +7,6 @@ const env = envalid.cleanEnv(process.env, {
   MONGODB_URL: str(),
 });
 
-logger.info('Required environment variables are present');
+logger.inProdEnv('Required environment variables are present');
 
 module.exports = env;
