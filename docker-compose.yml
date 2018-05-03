@@ -1,7 +1,7 @@
 version: '2'
 services:
   node:
-    image: wealthwizardsengineering/ww-base-node:alpine-latest
+    image: quay.io/wealthwizards/ww-base-node:alpine-6
     volumes:
       - .:/usr/src/app:z
     working_dir: /usr/src/app
@@ -14,7 +14,7 @@ services:
   unit-test:
     extends:
       service: npm
-    command: run test:unit:report
+    command: run test:unit
 
   mongodb:
     image: mongo:3.4.1
@@ -25,11 +25,10 @@ services:
   component-test:
     extends:
       service: npm
-    command: run test:component:report
+    command: run test:component
     depends_on:
       - mongodb
     environment:
-      - PORT=3000
       - MONGODB_URL=mongodb://mongodb:27017/service_registry
 
   dev:
@@ -39,7 +38,6 @@ services:
       - "3000:80"
     command: start
     environment:
-      - PORT=80
       - MONGODB_URL=mongodb://mongodb:27017/service_registry
     depends_on:
       - mongodb

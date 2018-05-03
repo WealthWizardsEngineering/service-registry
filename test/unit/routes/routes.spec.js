@@ -20,9 +20,7 @@ test('routes', (t) => {
     const target = proxyquire('../../../src/routes/', {
       '../rules/create-service-validation': 'create-service-validation',
       './create-service': 'create-service',
-      'ww-validation': {
-        requestValidator: (rule) => rule
-      }
+      '../request-validator': (rule) => rule
     });
 
     target(fakeApp);

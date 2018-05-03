@@ -5,7 +5,6 @@ const Service = require('../../src/db/service-model');
 const clearDownServiceDB = () => Service.remove();
 const serviceCreator = require('../../src/db/service-creator');
 const serviceReader = require('../../src/db/service-reader');
-const jwt = require('jsonwebtoken');
 const env = require('../../src/env-vars');
 const Joi = require('joi');
 

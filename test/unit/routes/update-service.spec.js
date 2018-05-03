@@ -84,10 +84,8 @@ test('update service', (t) => {
       '../db/service-updater': () => {
         return Promise.reject()
       },
-      'ww-utils': {
-        ErrorCodes: { INTERNAL_SERVER_ERROR: fakeInternalServerError },
-        ApiError: fakeApiError
-      },
+      '../api-error': fakeApiError,
+      '../error-codes': { INTERNAL_SERVER_ERROR: fakeInternalServerError }
     });
 
     target(fakeReq, fakeRes, fakeNext)

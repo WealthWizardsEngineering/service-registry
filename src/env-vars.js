@@ -3,10 +3,10 @@ const logger = require('./logger');
 const { str, num } = envalid;
 
 const env = envalid.cleanEnv(process.env, {
-  PORT: num(),
+  PORT: num({ default: 80 }),
   MONGODB_URL: str(),
 });
 
-logger.inProdEnv('Required environment variables are present');
+logger.info('Required environment variables are present');
 
 module.exports = env;

@@ -56,10 +56,8 @@ test('create service', (t) => {
       '../db/service-creator': () => {
         return Promise.reject({code: 11000})
       },
-      'ww-utils': {
-        ErrorCodes: { RESOURCE_EXISTS: fakeResourcesExists },
-        ApiError: fakeApiError
-      },
+      '../api-error': fakeApiError,
+      '../error-codes': { RESOURCE_EXISTS: fakeResourcesExists }
     });
 
     target(fakeReq, fakeRes, fakeNext)
@@ -88,10 +86,8 @@ test('create service', (t) => {
       '../db/service-creator': () => {
         return Promise.reject({code: 1234})
       },
-      'ww-utils': {
-        ErrorCodes: { INTERNAL_SERVER_ERROR: fakeInternalServerError },
-        ApiError: fakeApiError
-      },
+      '../api-error': fakeApiError,
+      '../error-codes': { INTERNAL_SERVER_ERROR: fakeInternalServerError }
     });
 
     target(fakeReq, fakeRes, fakeNext)

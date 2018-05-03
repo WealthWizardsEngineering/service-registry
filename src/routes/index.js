@@ -6,7 +6,7 @@ const getTags = require('./get-tags');
 const cors = require('cors');
 const createServiceValidation = require('../rules/create-service-validation');
 const queryStringValidation = require('../rules/querystring-validation');
-const { requestValidator } = require('ww-validation');
+const requestValidator  = require('../request-validator');
 
 module.exports = (app) => {
   app.post('/v1/service',
