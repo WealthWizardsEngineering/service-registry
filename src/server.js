@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 const env = require('./env-vars');
 const apiRoutes = require('./routes');
-const Service = require('./db/service-model');
 const errorHandler = require('./error-handler');
 const requestLogger = require('./request-logger');
 

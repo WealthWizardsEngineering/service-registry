@@ -9,6 +9,7 @@ test('routes', (t) => {
 
     const fakeApp = {
       get: () => {},
+      get: () => {},
       post: (route, ...middleware) => {
         assert.equal(route, '/v1/service');
         assert.deepEqual(middleware[0], { body: 'create-service-validation' }, 'create service validation correct');
@@ -33,6 +34,7 @@ test('routes', (t) => {
     assert.plan(3);
 
     const fakeApp = {
+      get: () => {},
       get: () => {},
       post: () => {},
       put: () => {},
@@ -60,6 +62,7 @@ test('routes', (t) => {
 
     const fakeApp = {
       get: () => {},
+      get: () => {},
       post: () => {},
       put: () => {},
       get: (route, ...middleware) => {
@@ -86,6 +89,7 @@ test('routes', (t) => {
 
     const fakeApp = {
       get: () => {},
+      get: () => {},
       post: () => {},
       get: () => {},
       put: (route, ...middleware) => {
@@ -110,6 +114,7 @@ test('routes', (t) => {
     assert.plan(3);
 
     const fakeApp = {
+      get: () => {},
       get: () => {},
       post: () => {},
       put: () => {},

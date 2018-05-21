@@ -1,4 +1,5 @@
 const createService = require('./create-service');
+const getHealth= require('./get-health');
 const getPing= require('./get-ping');
 const getService= require('./get-service');
 const getServices = require('./get-services');
@@ -15,6 +16,12 @@ module.exports = (app) => {
     cors(),
     nocache(),
     getPing
+  );
+
+  app.get('/health',
+    cors(),
+    nocache(),
+    getHealth
   );
 
   app.post('/v1/service',
