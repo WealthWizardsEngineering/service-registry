@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const responseTime = require('response-time');
 const helmet = require('helmet');
-const ping = require('./ping');
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 const env = require('./env-vars');
@@ -20,8 +19,6 @@ mongoose.connect(env.MONGODB_URL);
 contextRoute.use(helmet());
 
 contextRoute.use(requestLogger);
-
-ping(contextRoute);
 
 contextRoute.use(responseTime());
 

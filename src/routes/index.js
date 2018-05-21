@@ -1,14 +1,22 @@
 const createService = require('./create-service');
+const getPing= require('./get-ping');
 const getService= require('./get-service');
 const getServices = require('./get-services');
 const updateService = require('./update-service');
 const getTags = require('./get-tags');
 const cors = require('cors');
+const nocache = require('nocache');
 const createServiceValidation = require('../rules/create-service-validation');
 const queryStringValidation = require('../rules/querystring-validation');
 const requestValidator  = require('../request-validator');
 
 module.exports = (app) => {
+  app.get('/ping',
+    cors(),
+    nocache(),
+    getPing
+  );
+
   app.post('/v1/service',
     requestValidator({ body: createServiceValidation }),
     createService
