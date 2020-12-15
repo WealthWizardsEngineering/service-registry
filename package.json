@@ -1,6 +1,6 @@
 {
   "name": "service-registry",
-  "version": "0.0.56",
+  "version": "0.0.57",
   "engines": {
     "node": "^10"
   },
