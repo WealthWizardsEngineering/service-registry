@@ -2,7 +2,7 @@
   "name": "service-registry",
   "version": "0.0.69",
   "engines": {
-    "node": "^10"
+    "node": "^14"
   },
   "description": "A web service for managing information information about microservices",
   "homepage": "https://github.com/WealthWizardsEngineering/service-registry",
