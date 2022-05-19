@@ -3,10 +3,10 @@ module.exports = (req, res) => {
 
   getTags()
     .then(results => {
-      if (results == null || results.length === 0) {
-        res.send([]);
+      if (results && results.length > 0) {
+        res.send(results[0].tags);
       }
-      res.send(results[0].tags);
+      res.send([]);
     });
 
 };

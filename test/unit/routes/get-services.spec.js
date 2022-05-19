@@ -29,8 +29,8 @@ test('get services', t => {
         getServices: () => Promise.resolve(),
       },
     });
-
-    target(fakeReq);
+    const fakeRes = { send: sinon.spy() };
+    target(fakeReq, fakeRes);
 
   });
 
@@ -59,7 +59,8 @@ test('get services', t => {
       },
     });
 
-    target(fakeReq);
+    const fakeRes = { send: sinon.spy() };
+    target(fakeReq, fakeRes);
 
   });
 
